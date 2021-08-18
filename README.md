@@ -1,4 +1,4 @@
-# todolist
+# Tick Me
 
 ## Project setup
 ```
