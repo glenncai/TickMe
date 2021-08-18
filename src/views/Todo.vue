@@ -12,12 +12,12 @@
       clearable
     ></v-text-field>
     <v-list
-      v-if="tasks.length"
+      v-if="$store.state.tasks.length"
       class="pt-0"
       flat
     >
       <div
-        v-for="task in tasks"
+        v-for="task in $store.state.tasks"
         :key="task.id"
       >
         <v-list-item
@@ -73,8 +73,7 @@ export default {
   name: 'Todo',
   data() {
     return {
-      newTaskTitle: '',
-      tasks: []
+      newTaskTitle: ''
     }
   },
   methods: {
