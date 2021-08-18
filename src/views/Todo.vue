@@ -8,17 +8,24 @@
         v-for="task in tasks"
         :key="task.id"
       >
-        <v-list-item>
-          <template v-slot:default="{ active, }">
+        <v-list-item
+          @click="doneTask(task.id)"
+          :class="{ 'light-blue lighten-5' : task.done }"
+        >
+          <template v-slot:default>
             <v-list-item-action>
               <v-checkbox
-                :input-value="active"
+                :input-value="task.done"
                 color="primary"
               ></v-checkbox>
             </v-list-item-action>
 
             <v-list-item-content>
-              <v-list-item-title>{{ task.title }}</v-list-item-title>
+              <v-list-item-title 
+                :class="{ 'text-decoration-line-through' : task.done }"
+              >
+              {{ task.title }}
+              </v-list-item-title>
             </v-list-item-content>
           </template>
         </v-list-item>
@@ -37,17 +44,26 @@ export default {
       tasks: [
         {
           id: 1,
-          title: 'Wake up'
+          title: 'Wake up',
+          done: false
         },
         {
           id: 2,
-          title: 'Eat bananas'
+          title: 'Eat bananas',
+          done: false
         },
         {
           id: 3,
-          title: 'Go to run'
+          title: 'Go to run',
+          done: false
         },
       ]
+    }
+  },
+  methods: {
+    doneTask(taskId) {
+      let task = this.tasks.filter((task) => task.id === taskId)[0]
+      task.done = !task.done
     }
   }
 }
