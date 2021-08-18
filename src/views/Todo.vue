@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <v-text-field
       v-model="newTaskTitle"
       @click:append="addTask"
@@ -11,6 +11,7 @@
       hide-details
       clearable
     ></v-text-field>
+
     <v-list
       v-if="$store.state.tasks.length"
       class="pt-0"
@@ -22,7 +23,7 @@
       >
         <v-list-item
           @click="doneTask(task.id)"
-          :class="{ 'light-blue lighten-5' : task.done }"
+          :class="{ 'blue lighten-5' : task.done }"
         >
           <template v-slot:default>
             <v-list-item-action>
@@ -33,12 +34,13 @@
             </v-list-item-action>
 
             <v-list-item-content>
-              <v-list-item-title 
+              <v-list-item-title
                 :class="{ 'text-decoration-line-through' : task.done }"
               >
-              {{ task.title }}
+                {{ task.title }}
               </v-list-item-title>
             </v-list-item-content>
+
             <v-list-item-action>
               <v-btn
                 @click.stop="deleteTask(task.id)"
@@ -48,6 +50,7 @@
               </v-btn>
             </v-list-item-action>
           </template>
+
         </v-list-item>
         <v-divider></v-divider>
       </div>
@@ -68,7 +71,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'Todo',
   data() {

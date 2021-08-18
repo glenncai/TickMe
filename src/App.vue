@@ -40,7 +40,7 @@
 
     <v-app-bar
       app
-      color="#primary"
+      color="primary"
       dark
       src="@/assets/background.jpg"
       prominent
@@ -54,7 +54,7 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Tick Me</v-app-bar-title>
+      <v-toolbar-title>Tick Me</v-toolbar-title>
 
       <v-spacer></v-spacer>
 

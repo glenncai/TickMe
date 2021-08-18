@@ -13,12 +13,12 @@ export default new Vuex.Store({
       },
       {
         id: 2,
-        title: 'Eat bananas',
+        title: 'Get bananas',
         done: false
       },
       {
         id: 3,
-        title: 'Go to run',
+        title: 'Eat bananas',
         done: false
       }
     ]
@@ -30,16 +30,15 @@ export default new Vuex.Store({
         title: newTaskTitle,
         done: false
       }
-
       state.tasks.push(newTask)
     },
-    doneTask(state, taskId) {
-      let task = state.tasks.filter((task) => task.id === taskId)[0]
+    doneTask(state, id) {
+      let task = state.tasks.filter(task => task.id === id)[0]
       task.done = !task.done
     },
-    deleteTask(state, taskId) {
-      state.tasks = state.tasks.filter((task) => task.id !== taskId)
-    },
+    deleteTask(state, id) {
+      state.tasks = state.tasks.filter(task => task.id !== id)
+    }
   },
   actions: {
   },
