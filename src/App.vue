@@ -73,18 +73,24 @@
 
     <v-main>
       <router-view></router-view>
+      <Snackbar />
     </v-main>
   </v-app>
 </template>
 
 <script>
-  export default {
-    data: () => ({ 
-      drawer: null,
-      items: [
-        { title: 'Todo', icon: 'mdi-format-list-checks', to: '/' },
-        { title: 'About', icon: 'mdi-help-box', to: '/about' },
-      ],
-    }),
-  }
+import Snackbar from '@/components/Global/Snackbar'
+
+export default {
+  components: {
+    Snackbar
+  },
+  data: () => ({ 
+    drawer: null,
+    items: [
+      { title: 'Todo', icon: 'mdi-format-list-checks', to: '/' },
+      { title: 'About', icon: 'mdi-help-box', to: '/about' },
+    ],
+  }),
+}
 </script>
