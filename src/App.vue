@@ -44,6 +44,7 @@
       dark
       src="@/assets/background.jpg"
       prominent
+      height="170"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -59,7 +60,10 @@
           <Search />
         </v-row>
         <v-row>
-          <v-toolbar-title class="ml-4">Tick Me</v-toolbar-title>
+          <v-toolbar-title class="ml-4 text-h4">Tick Me</v-toolbar-title>
+        </v-row>
+        <v-row>
+          <LiveDateTime />
         </v-row>
       </v-container>
 
@@ -75,11 +79,13 @@
 <script>
 import Snackbar from '@/components/Global/Snackbar'
 import Search from '@/components/Tools/Search'
+import LiveDateTime from '@/components/Tools/LiveDateTime'
 
 export default {
   components: {
     Snackbar,
-    Search
+    Search,
+    LiveDateTime
   },
   data: () => ({ 
     drawer: null,
