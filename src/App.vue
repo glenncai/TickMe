@@ -52,23 +52,17 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-container class="pa-0">
+        <v-row>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-spacer></v-spacer>
+          <Search />
+        </v-row>
+        <v-row>
+          <v-toolbar-title class="ml-4">Tick Me</v-toolbar-title>
+        </v-row>
+      </v-container>
 
-      <v-toolbar-title>Tick Me</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
     </v-app-bar>
 
     <v-main>
@@ -80,10 +74,12 @@
 
 <script>
 import Snackbar from '@/components/Global/Snackbar'
+import Search from '@/components/Tools/Search'
 
 export default {
   components: {
-    Snackbar
+    Snackbar,
+    Search
   },
   data: () => ({ 
     drawer: null,
