@@ -28,9 +28,14 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <DialogEdit 
+      v-if="dialogs.edit"
+      @close="hideDialogEdit"
+      :task="task"
+    />
     <DialogDelete 
       v-if="dialogs.delete"
-      @close="showOrhideDialog(dialogs.delete)"
+      @close="hideDialogDelete"
       :task="task"
     />
   </div>
@@ -38,16 +43,19 @@
 
 <script>
 import DialogDelete from '@/components/Todo/Dialogs/DialogDelete'
+import DialogEdit from '@/components/Todo/Dialogs/DialogEdit'
 
 export default {
   name: 'TaskMenu',
   props: ['task'],
   components: {
-    DialogDelete
+    DialogDelete,
+    DialogEdit
   },
   data() {
     return {
       dialogs: {
+        edit: false,
         delete: false
       },
       items: [
@@ -55,7 +63,7 @@ export default {
           title: 'Edit',
           icon: 'mdi-pencil',
           click() {
-            console.log('edit');
+            this.dialogs.edit = true
           }
         },
         { 
@@ -79,9 +87,11 @@ export default {
     handleClick(index) {
       this.items[index].click.call(this)
     },
-    showOrhideDialog(active) {
-      // if true, return false. if false, return true
-      this.dialogs.delete = !active
+    hideDialogEdit() {
+      this.dialogs.edit = false
+    },
+    hideDialogDelete() {
+      this.dialogs.delete = false
     }
   }
 }

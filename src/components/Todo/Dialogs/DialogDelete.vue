@@ -34,7 +34,7 @@
 <script>
 export default {
   name: 'DialogDelete',
-  props: ['task', 'dialogs'],
+  props: ['task'],
   methods: {
     deleteTask(taskId) {
       this.$store.dispatch('deleteTask', taskId)
