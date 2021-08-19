@@ -21,49 +21,27 @@
         </v-list-item-content>
 
         <v-list-item-action>
-          <v-btn
-            @click.stop="showOrhideDialog(dialogs.delete)"
-            icon
-          >
-            <v-icon color="primary lighten-1">mdi-delete-circle</v-icon>
-          </v-btn>
+          <TaskMenu :task="task" />
         </v-list-item-action>
       </template>
 
     </v-list-item>
     <v-divider></v-divider>
-
-    <DialogDelete 
-      v-if="dialogs.delete"
-      @close="showOrhideDialog(dialogs.delete)"
-      :task="task"
-    />
   </div>
 </template>
 
 <script>
-import DialogDelete from '@/components/Todo/Dialogs/DialogDelete'
+import TaskMenu from '@/components/Todo/TaskMenu'
 
 export default {
   name: 'Task',
   props: ['task'],
   components: { 
-    DialogDelete
-  },
-  data() {
-    return {
-      dialogs: {
-        delete: false
-      }
-    }
+    TaskMenu
   },
   methods: {
     doneTask(taskId) {
       this.$store.commit('doneTask', taskId)
-    },
-    showOrhideDialog(active) {
-      // if true, return false. if false, return true
-      this.dialogs.delete = !active
     }
   }
 }
