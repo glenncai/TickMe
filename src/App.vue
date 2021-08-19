@@ -14,7 +14,7 @@
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title class="text-h5 white--text">
-              Tick Me
+              {{ $store.state.appTitle }}
             </v-list-item-title>
             <v-list-item-subtitle class="white--text">
               Your busy life deserves this.
@@ -68,7 +68,7 @@
           <Search />
         </v-row>
         <v-row>
-          <v-toolbar-title class="ml-4 text-h4">Tick Me</v-toolbar-title>
+          <v-toolbar-title class="ml-4 text-h4">{{ $store.state.appTitle }}</v-toolbar-title>
         </v-row>
         <v-row>
           <LiveDateTime />
@@ -101,7 +101,7 @@ export default {
       { title: 'Todo', icon: 'mdi-format-list-checks', to: '/' },
       { title: 'About', icon: 'mdi-help-box', to: '/about' },
     ],
-  }),
+  })
 }
 </script>
 

@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    appTitle: process.env.VUE_APP_TITLE,
     search: null,
     tasks: [
       {
@@ -29,7 +30,8 @@ export default new Vuex.Store({
     snackbar: {
       show: false,
       text: ''
-    }
+    },
+    sorting: false
   },
   mutations: {
     setSearch(state, value) {
@@ -59,6 +61,9 @@ export default new Vuex.Store({
       let task = state.tasks.filter(task => task.id === payload.id)[0]
       task.dueDate = payload.dueDate
     },
+    setTasks(state, tasks) {
+      state.tasks = tasks
+    },
     showSnackBar(state, text) {
       // The snackbar pops up again
       let timeout = 0
@@ -74,6 +79,9 @@ export default new Vuex.Store({
     },
     hideSnackbar(state) {
       state.snackbar.show = false
+    },
+    toggleSorting(state) {
+      state.sorting = !state.sorting
     }
   },
   actions: {
