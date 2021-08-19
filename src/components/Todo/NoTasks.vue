@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .no-tasks {
   display: flex;
   align-items: center;
