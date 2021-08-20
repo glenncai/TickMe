@@ -1,5 +1,12 @@
 # Tick Me
 
+## [Demo](https://tickme.netlify.app)
+
+## Technologies
+* Vue.js
+* Vuetify
+* IndexedDB
+
 ## Project setup
 ```
 npm install
