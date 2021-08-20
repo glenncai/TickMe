@@ -1,8 +1,8 @@
 # Tick Me
 
-## [Demo](https://tickme.netlify.app)
+### [Demo](https://tickme.netlify.app)
 
-## Technologies
+### Technologies
 * Vue.js
 * Vuetify
 * IndexedDB
