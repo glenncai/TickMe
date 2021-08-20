@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     doneTask(taskId) {
-      this.$store.commit('doneTask', taskId)
+      this.$store.dispatch('doneTask', taskId)
     }
   }
 }
