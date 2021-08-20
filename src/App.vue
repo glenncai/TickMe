@@ -52,12 +52,12 @@
       dark
       src="@/assets/background.jpg"
       prominent
-      height="170"
+      :height="$route.path === '/' ? '236' : '170'"
     >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
-          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+          gradient="to top right, rgba(19,84,122,.8), rgba(128,208,199,.9)"
         ></v-img>
       </template>
 
@@ -73,6 +73,9 @@
         <v-row>
           <LiveDateTime />
         </v-row>
+        <v-row v-if="$route.path === '/'">
+          <FieldAddTask />
+        </v-row>
       </v-container>
 
     </v-app-bar>
@@ -85,12 +88,14 @@
 </template>
 
 <script>
+import FieldAddTask from '@/components/Todo/FieldAddTask'
 import Snackbar from '@/components/Global/Snackbar'
 import Search from '@/components/Tools/Search'
 import LiveDateTime from '@/components/Tools/LiveDateTime'
 
 export default {
   components: {
+    FieldAddTask,
     Snackbar,
     Search,
     LiveDateTime
